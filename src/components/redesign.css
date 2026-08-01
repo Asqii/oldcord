@@ -1031,7 +1031,7 @@ html.visual-refresh {
 			"titleBar titleBar titleBar"
 			"notice notice notice"
 			"guildsList channelsList page";
-		grid-template-rows: [top] 22px [titlebarEnd] min-content [page] 1fr [end];
+		grid-template-rows: [top] 0 [titlebarEnd] min-content [page] 22px [end];
 		--trailingCounter: 1;
 		&:has(.trailing_c38106 > :nth-child(2 of :not(span, .winButtons_c38106))) {
 			--trailingCounter: 2;
