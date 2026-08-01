@@ -31,7 +31,7 @@ html.platform-osx .base__5e434 {
 		"titleBar titleBar titleBar"
 		"notice notice notice"
 		"guildsList channelsList page";
-	grid-template-rows: [top] 0px [titlebarEnd] min-content [page] 0px [end] !important;
+	grid-template-rows: [top] 0px [titlebarEnd] min-content [page] 1fr [end] !important;
 	.sidebar__5e434 > .guilds__5e434 {
 		margin-top: 32px;
 	}
@@ -68,10 +68,6 @@ html.platform-osx .title_c38106 {
 }
 :is(html.platform-linux, html.platform-win) .trailing_c38106 {
 	margin-top: 6px !important;
-}
-/* somehow, this seems to be exclusive to web-based clients */
-html.platform-web .attachWrapper__0923f { 
-	bottom: 2px; 
 }
 
 #app-mount .h5_b717a1.eyebrow_b717a1 {
@@ -1035,7 +1031,7 @@ html.visual-refresh {
 			"titleBar titleBar titleBar"
 			"notice notice notice"
 			"guildsList channelsList page";
-		grid-template-rows: [top] 0px [titlebarEnd] min-content [page] 22px [end];
+		grid-template-rows: [top] 22px [titlebarEnd] min-content [page] 1fr [end];
 		--trailingCounter: 1;
 		&:has(.trailing_c38106 > :nth-child(2 of :not(span, .winButtons_c38106))) {
 			--trailingCounter: 2;
@@ -1056,8 +1052,7 @@ html.visual-refresh {
 	.base__5e434 .sidebar__5e434 {
 		display: grid;
 		grid-template-areas: "guilds sidebar" "guilds panels";
-		grid-template-columns: [start] min-content [sidebarStart] unset [end];
-		grid-template-rows: [start] 1fr [panelsStart] min-content [end];
+		grid-template-rows: [start] minmax(0, 1fr) [panelsStart] min-content [end];
 		border-radius: 0;
 	}
 	&:not(.theme-midnight) .chat_f75fb0,
@@ -1067,16 +1062,13 @@ html.visual-refresh {
 	}
 	.base__5e434 .sidebar__5e434 > .guilds__5e434 {
 		grid-area: guilds;
-		margin-bottom: -13.5px;
 	}
 	.base__5e434 .sidebar__5e434 > .sidebarList__5e434 {
 		grid-area: sidebar;
 		min-width: 240px;
 		max-width: none;
+		min-height: 0;
 		--custom-app-panels-height: 0;
-		.scroller__629e4 {
-			margin-bottom: unset;
-		}
 	}
 
 	/*Betterfolders (vencord)*/
@@ -1418,6 +1410,7 @@ html.visual-refresh {
 		.attachWrapper__0923f {
 			padding: 6px 0px 6px 6px;
 			position: relative;
+			bottom: 2px;
 		}
 		.attachButton__0923f {
 			margin-inline: calc((var(--space-xs) + var(--space-6)) * -1) 6px;
@@ -1436,6 +1429,7 @@ html.visual-refresh {
 			svg {
 				width: 24px;
 				height: 24px;
+				
 				path {
 					d: path(
 						"M12 23a11 11 0 1 0 0-22 11 11 0 0 0 0 22Zm0-17a1 1 0 0 1 1 1v4h4a1 1 0 1 1 0 2h-4v4a1 1 0 1 1-2 0v-4H7a1 1 0 1 1 0-2h4V7a1 1 0 0 1 1-1Z"
